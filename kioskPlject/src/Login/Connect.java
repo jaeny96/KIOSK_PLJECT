@@ -137,24 +137,25 @@ public class Connect {
 				MainF mf = new MainF();
 				db d = new db();
 				ArrayList<String> menu = d.select("Menu", "paydata where id = '" + mf.user + "';");
+				System.out.print(menu.size());
 				int result = JOptionPane.showConfirmDialog(null,
 						"<html><center><font face = '티웨이_항공'> 예약 하시겠습니까? </font></center></html>", "confirm",
 						JOptionPane.YES_NO_OPTION);
 				if (result == JOptionPane.YES_OPTION) {
-//					if (menu.size() >=5) {
-//						JOptionPane.showMessageDialog(null,
-//								"<html><center><font face = '티웨이_항공'> 예약 할 수 없습니다. </font></center></html>", "confirm",
-//								JOptionPane.INFORMATION_MESSAGE);
-//						panel.setVisible(false);
-//
-//						// 변경후 메인페이지로 이동.!
-//						for (int i = 0; i < mf.main_con.length; i++) {
-//							frame.add(mf.main_con[i]);
-//						}
-//					} else {
+					if (menu.size() >=5) {
+						JOptionPane.showMessageDialog(null,
+								"<html><center><font face = '티웨이_항공'> 예약 할 수 없습니다. </font></center></html>", "confirm",
+								JOptionPane.INFORMATION_MESSAGE);
+						panel.setVisible(false);
+
+						// 변경후 메인페이지로 이동.!
+						for (int i = 0; i < mf.main_con.length; i++) {
+							frame.add(mf.main_con[i]);
+						}
+					} else {
 					panel.setVisible(false);
 					resrvationMain rm = new resrvationMain("re", frame, panel);
-//					}
+					}
 				}
 			}
 		});
